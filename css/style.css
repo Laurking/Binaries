@@ -1,0 +1,504 @@
+ {
+     /*Box model to automate easy box-sizing */
+     -moz-box-sizing: border-box; /* Firexfox */
+     -webkit-box-sizing: border-box; /* Safari/Chrome/iOS/Android */
+     box-sizing: border-box; /* IE */
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+.alignright {
+	float: right; 
+	padding: 0 0 10px 10px; /* note the padding around a right floated image */
+}
+
+.alignleft {
+	float: left; 
+	padding: 0 10px 10px 0; /* note the padding around a left floated image */
+}
+
+/******************************************
+/* BASE STYLES                   
+/*******************************************/
+
+body {
+     color: #000;
+     font-size: 12px;
+     line-height: 1.4;
+     font-family: Helvetica, Arial, sans-serif;
+     margin:0px;
+}
+
+/******************************************
+/* LAYOUT                   
+/*******************************************/
+#container,#container header{
+     width: 100%;
+     padding: 0px;
+}
+img{
+     width: 100%;
+     height: 100%;
+}
+#headBar{
+     background-color: black;
+     overflow: hidden;
+     padding-top: 3px;
+     padding-bottom: 3px;
+     border-bottom: 3px solid white;
+}
+#logo{
+     width: 130px;
+     height: 60px;
+     margin-left: .5em;
+     float: left;
+}
+.desktop{
+     display: none;
+}
+#menu_ic{
+     width: 60px;
+     height: 60px;
+     float: right;
+     margin-right: 1em;
+     cursor: pointer;
+}
+#navigation{
+     clear: both;
+     display: none;
+     width: 100%;
+     position: absolute;
+}
+#navigation ul li{
+     padding: 1em;
+     width: 100%;
+     background-color: #222;
+     font-size: 1.4em;
+     cursor: pointer;
+     font-family: Times New Roman;
+     border-bottom: 1px solid black;
+}
+#navigation ul li a{
+     color: white;
+     text-decoration: none;
+
+}
+#navigation ul li:hover a{
+     color: #444;
+}
+#load{
+    width:auto;
+    padding: 2px;
+    overflow: hidden;
+    background-color: white;
+    position: absolute;
+    border-bottom:40px solid black; 
+}
+#load .loadSecondFirstChild{
+     width: 100%;
+     padding: 1px;
+     overflow: hidden;
+     background-color: white;
+}
+#load .loadSecondFirstChild section{
+     width: 100%;
+     padding: 5px;
+     margin-bottom: 1.5em;
+}
+#load .loadSecondFirstChild section:nth-child(1){
+     text-align: center;
+     font-size: 2em;
+     padding: 1em .4em;
+}
+#load .loadSecondFirstChild section:nth-child(1) h2{
+     text-shadow:-1px 2px 2px #444;
+}
+#load .loadSecondFirstChild section:nth-child(2) p{
+     font-size: 1.4em;
+     transition:500ms horizontal;
+     text-align: center;
+     text-shadow:-1px 1px 1px #ccc;
+}
+#load .loadSecondFirstChild section:nth-child(3){
+     text-align: center;
+}
+#load .loadSecondFirstChild section:nth-child(3) ul{
+     width: 220px;
+     overflow: hidden;
+     border-radius: 7px;
+     margin: auto auto;
+}
+#load .loadSecondFirstChild section:nth-child(3) ul li{
+     width: 10%;
+     float: left;
+     padding: 11px;
+     background-color: black;
+}
+#load .loadSecondFirstChild section:nth-child(4) aside{
+     text-align: center;
+     width:100%;
+     float: left;
+     font-size: 1.4em;
+}
+#load .loadSecondFirstChild section:nth-child(4) aside:last-of-type{
+     clear: both;
+     text-align: center;
+     width: 100%;
+     margin-top: 1em;
+     font-size: 1.4em;
+}
+#load .loadSecondFirstChild section:nth-child(4) h3{
+     font-size: 1.2em;
+     padding: .2em;
+}
+#load .loadSecondFirstChild section:nth-child(4) h3 a{
+     text-decoration: none;
+     padding: .2em;
+     color: black;
+}
+#load .loadSecondFirstChild section:nth-child(4) h3 a:hover{
+     color:#999;
+}
+
+#morePlayers form{
+     font-size: 1.2em;
+}
+#morePlayers form input{
+     width: 80px;
+     border: 1px solid black;
+     outline: none;
+}
+#morePlayers form button{
+     font-size: .5.7em;
+     border: 1px solid black;
+     outline: none;
+}
+#morePlayers h5{
+     color: red;
+}
+#morePlayers a{
+     text-decoration: none;
+     color: red;
+}
+#userInfo{
+     width:98%;
+     overflow: hidden;
+     font-size: 1.2em;
+     padding: 1em;
+     background-color: #444;
+}
+#userInfo section{
+     float: right;
+     margin-right:5em;
+}
+.newUserInfo{
+     padding-right: 4em;
+     color: white;
+     font-size: 2em;
+     text-align: center;
+     text-transform: capitalize;
+}
+#userInfo h1{
+     display: inline-block;
+     color: white;
+     float: left;
+     text-transform: capitalize;
+     font-size: 1.2em;
+     margin-right:.7em;
+}
+
+#userInfo form{
+     float: right;
+     margin: 0 2.5em;
+     margin-left: 1em; 
+     font-size:1em;
+}
+#userInfo form button{
+     font-size: .9em;
+}
+
+main{
+     width: 100%;
+     overflow: hidden;
+     text-align: center;
+}
+main section{
+     width: 100%;
+     height: 200px;
+     overflow: hidden;
+     background-color:#ccc;
+}
+.bulbs{
+     width:10%;
+     float: left;
+     height: 70%;
+     cursor: pointer;
+     background-color:#ccc;
+
+}
+.bulbs:hover img{
+     background-color: #444;
+}
+.bulbs h2:first-of-type{
+     text-align: center;
+     padding: 2px;
+     background-color: white;
+     width: 100%;
+     border-left: 2px solid black;
+     border-top: 2px solid black;
+}
+.bulbs h2:last-of-type{
+     background-color: #444;
+     width: 50%;
+     font-size: .8em;
+     color: white;
+}
+.bulbs h3{
+     text-align: center;
+     width: 50%;
+     color: white;
+     background-color: #444
+}
+#middle{
+     width: 100%;
+     padding: 2px;
+     font-size: 1.4em;
+     background-color: #333;
+     overflow: hidden;
+     border-top: 30px solid black;
+}
+#middle .first{
+     width:100%;
+     overflow: hidden;
+     padding: 10px 0px;
+}
+#middle .first h1{
+     width: 40%;
+     float: left;
+     padding: 9px;
+     text-align: right;
+     padding-right: 3px;
+     color: white;
+     font-family: Impact;
+}
+#middle .first nav{
+     width: 50%;
+     float: left;
+     padding: 2px;
+}
+#middle .first nav ul{
+     width: 100%;
+     padding: 2px;
+     overflow: hidden;
+}
+#middle .first nav ul li{
+     width: 6px;
+     float: left;
+     color: white;
+     padding: 5px;
+}
+#second{
+     width: 100%;
+     padding: 1px;
+     overflow: hidden;
+}
+#second #submitAndReset{
+     text-align: center;
+     width: 100%;
+     padding: 10px 0px;
+}
+#second #submitAndReset h2{
+     margin-top: .5em;
+     font-size: 1.5em;
+}
+#second #submitAndReset button{
+     font-size: 1.2em;
+}
+#second .bottom{
+     width: 30%;
+     float: left;
+     text-align: center;
+     overflow: hidden;
+     padding: 3px;
+     margin-top: 1em;
+}
+#second .bottom input{
+     width:93px;
+     font-size: .72em;
+     border-radius: 7px;
+     border: 2px solid black;
+}
+#second .bottom h1{
+     font-size: .9em;
+}
+
+#second .bottom button{
+     font-size: .7em;
+}
+#options{
+     width: 100%;
+     padding: 10px 0px;
+     color: white;
+     text-align: center;
+     background-color: black;
+     overflow: hidden;
+}
+#options h1{
+     display: inline-block;
+     font-family: Impact;
+     margin: 0 .5em;
+     font-size: 2em;
+}
+#options aside{
+     width: 45%;
+     float: left;
+     padding: 2px;
+     overflow: hidden;
+}
+#options aside button{
+     font-size: 1.2em;
+}
+#options aside:first-of-type{
+     text-align: right;
+}
+#options aside:nth-child(2){
+     text-align: left;
+}
+#options aside:nth-child(3){
+     width: 100%;
+     text-align: right;
+     margin-top: .5em;
+     padding-right: 1.5em;
+}
+footer{
+     width: 100%;
+     padding: 2px;
+     background-color: #444;
+     overflow: hidden;
+}
+footer .foot1{
+     width: 100%;
+     text-align: right;
+     background-color: #ccc;
+     padding: 10px;
+     padding-right: 2em;
+}
+footer .foot1 select{
+     margin-right: 2em;
+}
+footer .foot2{
+     width:100%;
+     padding: 8px;
+     overflow: hidden;
+     text-align: left;
+     margin-left: 5px;
+     color: white;
+}
+footer .foot2 h1{
+     float: left;
+}
+footer .foot2 h1:first-of-type{
+     margin-right: 1em;
+}
+footer .foot2 h1 a{
+     padding: .3em;
+     margin-right: .5em;
+     text-decoration: none;
+     color: white;
+}
+.binaryToDeciaml:hover{
+     color: #444;
+     cursor: pointer;
+}
+.deciamlToBinary:hover{
+     color: #444;
+     cursor: pointer;
+}
+audio{
+     display: none;
+}
+
+
+@media  only  screen and (min-width:768px){
+ #load{
+    width:100%;
+    padding: 2px;
+    overflow: hidden;
+    background-color: white;
+    position: absolute;
+}
+.mobile{
+     display: none;
+}
+#logo{
+     width: 17%;
+}
+.desktop{
+     display: block;
+}
+#navigation{
+     visibility: hidden;
+}
+#nav{
+     display: block;
+     padding: .5em;
+     width: 71%;
+     float: left;
+     overflow: hidden;
+}
+#nav ul li{
+     float: left;
+     width: 15%;
+     font-size: 1.5em;
+     padding: .7em;
+     text-align: center;
+     cursor: pointer;
+}
+#nav ul li a{
+     color: white;
+     text-decoration: none;
+}
+#nav ul li:hover{
+     background-color: white;
+     border-radius: 50px;
+}
+#nav ul li:hover a{
+     color: #444;
+}
+#setting{
+     width: 60px;
+     height: 50px;
+     margin-top: .5em;
+     margin-right: 1em;
+     float: right;
+     cursor: pointer;
+}
+#setting:hover{
+     background-color:#444;
+     border-radius: 7px;
+}
+#second .bottom{
+    
+     font-size: 1.4em;
+}
+
+}
+
+
+
+
+
+
+
