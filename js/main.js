@@ -8,15 +8,68 @@ $(function(){
 	var counter=0;
 	var increment=-1;
 
-	$("#setting").click(function(){$("#load").slideToggle();});
+	$("#setting").click(function(){$("#load").slideToggle();$("#morePlayers").html("<h3 class=\"morePlayers\"><a href=\"#\">Multi-players</a></h3>")});
 	$('#menu_ic').click(function(){$("#navigation").slideToggle();})
 	$("#reset").click(function(){reset();})
 	$("form").submit(function(event){event.preventDefault();})
 	$('button').click(function(event){event.preventDefault()})
 	$("#onePlayer").click(function(){multiUsers();})
-	$(".morePlayers").click(function(){$(this).parent().html("<h5>How many players: </h5><form><input type=\"number\"placeholder=\"Players: 2-4\"><button>Submit</button></form><a id=\"goback\" href=\"#\"><h5>or Go back</h5></a>")});
+
+	$(".morePlayers").click(function(){$(this).parent().html("<h5>How many players: </h5><section id=\"userChoice\"><button class=\"choiceOne\">+2</button><button class=\"choiceTwo\">+3</button><button class=\"choiceThree\">+4</button></section><a id=\"goback\" href=\"#\"><h5>or Go back</h5></a>")});
 	$("#morePlayers").on("click","#goback",function(){$("#morePlayers").html("<h3 class=\"morePlayers\"><a href=\"#\">Multi-players</a></h3>")})
-	$("#morePlayers").on("click",".morePlayers",function(){$(this).parent().html("<h5>How many players: </h5><form><input placeholder=\"Players: 2-4\"><button>Submit</button></form><a id=\"goback\" href=\"#\"><h5>or Go back</h5></a>")})
+
+	$("#morePlayers").on("click",".morePlayers",function(){
+		$(this).parent().html("<h5>How many players: </h5><section id=\"userChoice\"><button class=\"choiceOne\">+2</button><button class=\"choiceTwo\">+3</button><button class=\"choiceThree\">+4</button></section><a id=\"goback\" href=\"#\"><h5>or Go back</h5></a>")
+	})
+
+	$("#morePlayers").on("mouseover","#goback",function(){
+		$(this).children("h5").css("color","#444");
+	})
+	$("#morePlayers").on("mouseout","#goback",function(){
+		$(this).children("h5").css("color","black");
+	})
+
+
+	$("#morePlayers").on("click",".choiceOne",function(){
+		var userInput=userinput();
+		userAnswer=getUserAnswer();
+		$("#load").slideToggle();
+		$("#options h1").show();
+		reset();
+		$(".bottom input").hide();
+		$("#userInfo form").after(getPlayerName(2));
+		player=new Player(1,10,userAnswer,userInput,0);
+		$("#options #randomBox").html(player.randomNumber());
+
+	})
+
+
+	$("#morePlayers").on("click",".choiceTwo",function(){
+		var userInput=userinput();
+		userAnswer=getUserAnswer();
+		$("#load").slideToggle();
+		$("#options h1").show();
+		reset();
+		$(".bottom input").hide();
+		$("#userInfo form").after(getPlayerName(3));
+		player=new Player(1,10,userAnswer,userInput,0);
+		$("#options #randomBox").html(player.randomNumber());
+
+	})
+
+	$("#morePlayers").on("click",".choiceThree",function(){
+		var userInput=userinput();
+		userAnswer=getUserAnswer();
+		$("#load").slideToggle();
+		$("#options h1").show();
+		reset();
+		$(".bottom input").hide();
+		$("#userInfo form").after(getPlayerName(4));
+		player=new Player(1,10,userAnswer,userInput,0);
+		$("#options #randomBox").html(player.randomNumber());
+
+	})
+
 
 	setInterval(function(){
 		var item=$("#loading li")[load.forward()];
@@ -52,35 +105,7 @@ $(function(){
 
 	});
 	
-	$("#morePlayers").on("submit","form",function(event){
-		event.preventDefault();
-		reset();
-		var userInput=userinput();
-		userAnswer=getUserAnswer()
-		var value=parseInt($(this).siblings("input").val());	
-		if (value<2 || value>4) {alert("Value must be between 2 and 4")}
-		else{$("#userInfo form").after(getPlayerName(value));$("#load").slideToggle();}	
-		$("#options h1").show();
-		$(".bottom input").hide();
-		player=new Player(1,10,userAnswer,userInput,0);
-		$("#options #randomBox").html(player.randomNumber());
-	})
-
-	$("#morePlayers").on("click","form button",function(event){
-		event.preventDefault();
-		reset();
-		var userInput=userinput();
-		userAnswer=getUserAnswer()
-		var value=parseInt($(this).siblings("input").val());
-		if (value.toString().length==0) {$(this).siblings("input").val("Enter a value")}
-		else if (value<2 || value>4) {alert("Value must be between 2 and 4")}
-		else{$("#userInfo form").after(getPlayerName(value));$("#load").slideToggle();}	
-		$("#options h1").show();
-		$(".bottom input").hide();
-		player=new Player(1,10,userAnswer,userInput,0);
-		$("#options #randomBox").html(player.randomNumber());
-	})
-
+	
 	$('input').focus(function(){
 		if ($('#userInfo form input').val().length>0) {$(this).val("");}
 	})
