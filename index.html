@@ -5,9 +5,9 @@
 	<meta name="description" content="Your description goes here">
 	<meta name="keywords" content="one, two, three">
 	
-	<title>Blank Template</title>
+	<title>Binary-Game</title>
+
 	<link rel="stylesheet" href="css/reset.css">
-	<!-- external CSS link -->
 	<link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -155,7 +155,7 @@
 
 				<section id="middle">
 					<aside class="first">
-						<h1>Your output is </h1>
+						<h1>Your output:</h1>
 						<nav>
 							<ul>
 								<li>0</li>
@@ -170,6 +170,9 @@
 								<li>0</li>
 							</ul>
 						</nav>
+					</aside>
+					<aside class="second">
+						<h3>Audio</h3><h3><button id="on">On</button><button id="off">Off</button></h3>
 					</aside>	
 				</section>
 
@@ -220,11 +223,32 @@
 						</h1>
 
 					</section>
-					<audio src="music/mario.mp3" autoplay="auto" controls></audio>
-				</footer>
-			</div>
-			<!-- javascript -->
-			<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-			<script src="js/main.js"></script>
-		</body>
-		</html>
+					<audio controls preload="none">
+						<source src="music/bip1.mp3"></source>
+					</audio>
+					<audio controls preload="none">
+						<source src="music/bip2.mp3"></source>
+					</audio>
+					<audio controls preload="none">
+						<source src="music/bip3.mp3"></source>
+					</audio>
+					<audio controls preload="none">
+						<source src="music/bip4.mp3"></source>
+					</audio>
+					<audio controls preload="none">
+						<source src="music/bip5.mp3"></source>
+					</audio>
+					<audio controls preload="none">
+						<source src="music/bip6.mp3"></source>
+					</audio>
+					<audio id="congrats" controls preload="none">
+						<source src="music/bip7.mp3"></source>
+					</audio>
+
+			</footer>
+		</div>
+		<!-- javascript -->
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+	</html>

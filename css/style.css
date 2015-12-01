@@ -273,38 +273,48 @@ main section{
 }
 #middle{
      width: 100%;
-     padding: 2px;
      font-size: 1.4em;
      background-color: #333;
      overflow: hidden;
      border-top: 30px solid black;
 }
 #middle .first{
-     width:100%;
+     width:82%;
+     float: left;
+     text-align: center;
      overflow: hidden;
      padding: 10px 0px;
 }
-#middle .first h1{
-     width: 40%;
-     float: left;
-     padding: 9px;
+#middle .second{
+     width: 18%;
+     overflow: hidden;
+     padding: 10px 0px;
      text-align: right;
-     padding-right: 3px;
+}
+#middle .second h3{
+     display: inline;
+     font-size: .8em;
+     font-family: impact;
+     color: white;
+}
+#middle .first h1{
+     width:34%;
+     float: left;
+     text-align: center;
      color: white;
      font-family: Impact;
 }
 #middle .first nav{
-     width: 50%;
+     width: 66%;
      float: left;
-     padding: 2px;
 }
 #middle .first nav ul{
      width: 100%;
-     padding: 2px;
+     text-align: center;
      overflow: hidden;
 }
 #middle .first nav ul li{
-     width: 6px;
+     width: 5px;
      float: left;
      color: white;
      padding: 5px;

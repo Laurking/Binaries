@@ -81,11 +81,14 @@ $(function(){
 	$(".bulbs").click(function(){
 		var currentIndex=$(this).index();
 		var currentLight=$(this).children("img").attr('src');
+		var myAudio=$("audio")[Math.floor(Math.random()*(5-1+1)+1)]
 		light=new lightSwitch(currentLight);
 		$(this).children("img").attr('src',light.turnAround());
 		$(this).children("h3").html(light.getBinary());
 		$($(".first nav ul li")[currentIndex]).html(light.getBinary());
 		$("#submitAndReset h2").fadeOut();
+		$(myAudio).trigger("play");
+		console.log($(myAudio).attr("src"))
 		
 	})
 
@@ -128,6 +131,22 @@ $(function(){
 		
 	})
 
+
+//audio control buttons selectors
+
+$("#on").click(function(){
+	$("audio").each(function(){
+		$("audio").prop("muted",false)
+	})
+})
+
+$("#off").click(function(){
+	$("audio").each(function(){
+		$("audio").prop("muted",true)
+	})
+})
+
+
 	$("#submit").click(function(){
 		var userInput=userinput();
 		userAnswer=getUserAnswer();
@@ -138,18 +157,17 @@ $(function(){
 		var checkanswer=interaction.checkAnswer();
 		$("#submitAndReset h2").fadeIn();
 		$("#submitAndReset h2").html(checkanswer);
-		$("#submitAndReset h2").css("color",interaction.highlight())
-
-		
+		$("#submitAndReset h2").css("color",interaction.highlight());
 		if (checkanswer=="Correct") {
 			var testscore=parseInt($(newTurn).children(".value").html());
 			player=new Player(1,10,userAnswer,userInput,testscore);
-			$(newTurn).children(".value").html(player.testScore())
+			$(newTurn).children(".value").html(player.testScore());
+			$("#congrats").trigger("play")
 		}
 		
 		$("#options #randomBox").html(player.randomNumber())
 		console.log($("#options #randomBox").html());
-
+		$(".bulbs").children("img").attr('src',"img/off_bulb.png");
 		userAnswer=interaction.resetUserAnswer();
 
 	})
@@ -185,6 +203,7 @@ $(function(){
 		};
 		return userInput.substring(index,userInput.length);
 	}
+
 
 
 	function reset(){
@@ -252,12 +271,12 @@ $(function(){
 	}
 
 
-
 	function Player(numberOfPlayers,randrange,userAnswer,userInput,score){
 		this.numberOfPlayers=numberOfPlayers;
 		this.turn=0;
 		this.randrange=randrange;
 		this.score=score;
+		this.gameLevel="Beginner";
 		this.interaction=new userInteraction(userInput,userAnswer);
 
 		this.playerTurn=function(){
@@ -273,19 +292,25 @@ $(function(){
 		this.randomNumber=function(){
 
 			if (this.score<30) {
-				this.randrange=30;
+				this.randrange=15;
+				this.gameLevel="Beginner";
 				return Math.floor(Math.random() * (this.randrange - 1 + 1)) + 1;
 			}
 			else if (this.score>=30 && this.score<70) {
-				this.randrange=70;
-				return Math.floor(Math.random() * (this.randrange - 30 + 30)) + 30;
+				this.randrange=64;
+				this.gameLevel="Medium";
+				return Math.floor(Math.random() * (this.randrange - 32 + 32)) + 32;
 
 			}
 			else if (this.score>=70 && this.score<=100){
-				this.randrange=200;
-				return Math.floor(Math.random() * (this.randrange - 70 + 70)) + 70;
+				this.randrange=128;
+				this.gameLevel="Advance";
+				return Math.floor(Math.random() * (this.randrange - 65 + 65)) + 65;
 			}
 
+		}
+		this.getLevel=function(){
+			return this.gameLevel;
 		}
 
 
@@ -394,6 +419,7 @@ $(function(){
 		}
 
 	}
+
 
 });
 
